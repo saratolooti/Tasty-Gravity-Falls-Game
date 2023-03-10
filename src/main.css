@@ -1,0 +1,474 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: #2b2d42;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Changa One", cursive;
+}
+
+.loader {
+  width: 1024px;
+  height: 576px;
+  background: #f688e1;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.loader p {
+  font-size: 28px;
+  color: #fff;
+  animation: loaderAnimation 1s infinite ease;
+}
+
+@keyframes loaderAnimation {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 50%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  75% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
+#opening-screen {
+  width: 1024px;
+  height: 576px;
+  background: #f688e1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.header {
+  color: #f95d1b;
+  text-shadow: -1px 2px #000, -3px 4px #557553, -4px 5px #000;
+  font-size: 40px;
+  transform: translateY(23px) rotate(-10deg);
+}
+
+.piggy {
+  width: 262px;
+  height: 205px;
+  background: url(/img/piggy1.png);
+  z-index: 1;
+  position: absolute;
+  bottom: -9%;
+  animation: piggyAnim 1.7s 1.3s steps(22) forwards;
+}
+
+@keyframes piggyAnim {
+  from {
+    background-position: -3px;
+  }
+  to {
+    background-position: 5761px;
+  }
+}
+
+.logo {
+  width: 400px;
+  transform: translateY(30px);
+}
+
+.spinner {
+  width: 1300px;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.boxShadow {
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+#btnContainer {
+  border: 3px solid #fff;
+  border-radius: 11px;
+  z-index: 1;
+  overflow: hidden;
+  transition: transform 0.3s ease, height 0.3s ease;
+}
+
+.playBtnPosition {
+  height: 53px;
+  transform: translateY(90px);
+}
+
+.btn {
+  color: white;
+  padding: 10px 17px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-family: "Changa One", cursive;
+}
+
+#play-btn {
+  font-size: 20px;
+  background-color: #f65e1d;
+  box-shadow: 0 7px 0 #cd4307;
+}
+
+.playBtnPosition:hover {
+  transform: translateY(94px);
+  height: 50px;
+}
+
+.playBtnPosition:active {
+  transform: translateY(97px);
+  height: 46px;
+}
+
+#canvas {
+  display: none;
+}
+
+#inside-game {
+  display: none;
+  width: 1024px;
+  height: 576px;
+  position: absolute;
+  z-index: 1;
+}
+
+.sizeBarContainer {
+  width: 320px;
+  height: 74px;
+  color: white;
+  position: relative;
+  padding: 5px 20px 5px 5px;
+  margin: 20px 20px;
+  border: 4px solid #fff;
+  border-radius: 10px;
+  background: #9f51fe;
+}
+
+.sizeBarContainer > img {
+  width: 55px;
+  height: 55px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.sizeBar {
+  width: 220px;
+  height: 23px;
+  background: #542ec7;
+  border: 3px solid #fff;
+  border-radius: 25px;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  overflow: hidden;
+}
+
+.sizeBar > div {
+  width: 10%;
+  height: 19px;
+  background: #f6b3c0;
+  border: none;
+  border-radius: 25px;
+}
+
+.sizeBarContainer > span {
+  position: absolute;
+  right: 27px;
+  bottom: 5px;
+  font-size: 20px;
+}
+
+#timer {
+  color: white;
+  font-size: 20px;
+  width: 120px;
+  height: 36px;
+  background: #9f51fe;
+  position: absolute;
+  right: 70px;
+  top: 20px;
+  border: 4px solid #fff;
+  border-radius: 25px;
+  text-align: center;
+  padding: 3px 0;
+}
+
+.menuContainer {
+  width: 45px;
+  height: 150px;
+  position: absolute;
+  right: 0;
+  top: 90px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background: rgba(187, 151, 255, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menuContainer > button {
+  width: 35px;
+  height: 35px;
+  background: #6302bd93;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.menuContainer > button > img {
+  margin-top: 2px;
+}
+
+.menuContainer > button:hover {
+  background: rgba(113, 70, 192, 0.6);
+}
+
+.menuContainer img {
+  width: 25px;
+}
+
+.modalBackground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(55, 55, 55, 0.32);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  background: #fff;
+  border: none;
+  border-radius: 21px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 6px 0 #d1d8ff;
+}
+
+.modalHeader {
+  width: 100%;
+  height: 35px;
+  background: #fc8aff;
+  border: none;
+  border-radius: 19px;
+  position: relative;
+}
+
+.modalTitle {
+  color: white;
+  font-size: 25px;
+  padding: 3px;
+  text-align: center;
+}
+
+#close-modal {
+  width: 45px;
+  height: 45px;
+  background: #fc8aff;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -6px;
+  right: -1px;
+  cursor: pointer;
+}
+
+#close-modal > img {
+  width: 25px;
+  height: 25px;
+  margin-top: 5px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.font {
+  font-family: "Roboto", sans-serif;
+}
+
+.keypadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.keypadContainer > .wrapper {
+  display: flex;
+}
+
+.keypad {
+  width: 55px;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 7px;
+  margin: 8px;
+  background: #c286ff;
+  text-align: center;
+  box-shadow: 0 7px 0 #9f51fe;
+}
+
+.description {
+  font-size: 19px;
+  color: #342a25;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.modalBtnPosition {
+  height: 45px;
+  position: absolute;
+  right: 0px;
+  bottom: -10px;
+}
+
+#modal-btn {
+  background: #fc8aff;
+  box-shadow: 0 7px 0 #da57f0;
+}
+
+.modalBtnPosition:hover {
+  bottom: -11px;
+  height: 43px;
+}
+
+.modalBtnPosition:active {
+  bottom: -12px;
+  height: 40px;
+}
+
+.container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > span {
+  font-size: 38px;
+  margin: 0 20px;
+  font-family: "Changa One", cursive;
+}
+
+.modalContainer > .star-shine-img {
+  width: 350px;
+  position: absolute;
+  top: -120px;
+}
+
+.modalContainer > svg {
+  position: absolute;
+  top: -80px;
+}
+
+.modalContainer > h1 {
+  font-size: 18px;
+  color: #dd67ed;
+  text-align: center;
+  text-shadow: none;
+}
+
+.modalContainer > h1 > div {
+  font-size: 30px;
+  margin: 0px 0 40px 0;
+  color: #ff99db;
+  text-shadow: 2px 2px 0 #b20d78;
+}
+
+.starFill {
+  transform: scaleX(0);
+}
+
+#status {
+  width: 100%;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#status > .piggy-status {
+  position: absolute;
+  width: 100px;
+}
+
+#status > .pink-spin {
+  position: absolute;
+  width: 220px;
+  top: -55px;
+  left: 8px;
+}
+
+#replay-btn {
+  background: #ef8412;
+  box-shadow: 0 7px 0 #da5917;
+}
+
+.replayBtnPosition {
+  height: 45px;
+  position: absolute;
+  bottom: 25px;
+}
+
+.replayBtnPosition:hover {
+  bottom: 23px;
+  height: 43px;
+}
+
+.replayBtnPosition:active {
+  bottom: 20px;
+  height: 40px;
+}
+
+#endGame-modal,
+#page2,
+#page3,
+#page4 {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+}

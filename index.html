@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/main.css" />
+
+    <title>Tasty Gravity Falls</title>
+  </head>
+  <body>
+    <!-- preloader  -->
+    <div class="loader">
+      <p>Loading</p>
+    </div>
+
+    <!-- openning screen  -->
+    <div id="opening-screen">
+      <img src="img/spinner.png" alt="spinner" class="spinner" />
+      <span class="header">Tasty</span>
+      <img src="img/logo.png" alt="Gravity Falls logo" class="logo" />
+      <div id="btnContainer" class="playBtnPosition">
+        <button id="play-btn" onclick="playGame()" class="btn boxShadow">
+          Start Game
+        </button>
+      </div>
+      <div class="piggy"></div>
+    </div>
+
+    <!-- inside game options  -->
+    <div id="inside-game">
+      <!-- game tutorial modal  -->
+      <div class="modalBackground" id="tutorial-modal">
+        <div class="modalContainer boxShadow" style="width: 500px">
+          <div class="modalHeader">
+            <div class="modalTitle">How to play</div>
+            <button id="close-modal" onclick="closeModal()">
+              <img src="img/close-icon.png" alt="close icon" />
+            </button>
+          </div>
+
+          <!-- content 1  -->
+          <div class="content font" id="page1">
+            <div class="keypadContainer">
+              <div id="keypad1" class="keypad">W</div>
+              <div class="wrapper">
+                <div id="keypad2" class="keypad">A</div>
+                <div id="keypad3" class="keypad">S</div>
+                <div id="keypad4" class="keypad">D</div>
+              </div>
+            </div>
+            <div class="description">keys to move</div>
+            <div id="btnContainer" class="modalBtnPosition boxShadow">
+              <button id="modal-btn" onclick="nextModal(1)" class="btn">
+                next
+              </button>
+            </div>
+          </div>
+
+          <!-- content 2  -->
+          <div class="content font" id="page2">
+            <div class="container">
+              <img src="img/piggy.png" alt="piggy" style="width: 100px" />
+              <span>=</span>
+              <img src="img/macaroni.png" alt="macaroni" style="width: 100px" />
+            </div>
+            <div class="description">
+              piggy can eat an object only if its size is at least equal to the
+              target object
+            </div>
+            <div id="btnContainer" class="modalBtnPosition boxShadow">
+              <button id="modal-btn" onclick="nextModal(2)" class="btn">
+                next
+              </button>
+            </div>
+          </div>
+
+          <!-- content 3  -->
+          <div class="content font" id="page3">
+            <div class="container">
+              <img src="img/piggy.png" alt="piggy" style="width: 60px" />
+              <span>- - - -</span>
+              <img src="img/piggy.png" alt="piggy" style="width: 110px" />
+            </div>
+            <div class="description">
+              the piggy’s size will increase by eating
+            </div>
+            <div id="btnContainer" class="modalBtnPosition boxShadow">
+              <button id="modal-btn" onclick="nextModal(3)" class="btn">
+                next
+              </button>
+            </div>
+          </div>
+
+          <!-- content 4  -->
+          <div class="content font" id="page4">
+            <div class="container">
+              <img
+                src="img/exclamationMark.png"
+                alt="Exclamation mark"
+                style="width: 100px"
+              />
+            </div>
+            <div class="description">
+              if the piggy cannot eat the object that is smaller just try to eat
+              it from another direction or try another object and come back to
+              that specific object later!
+            </div>
+            <div id="btnContainer" class="modalBtnPosition boxShadow">
+              <button id="modal-btn" onclick="nextModal(4)" class="btn">
+                Let's go!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- end Game scenario  -->
+      <div class="modalBackground" id="endGame-modal">
+        <div
+          class="modalContainer boxShadow"
+          style="width: 300px; height: 350px"
+        >
+          <img src="img/shine.png" alt="shine" class="star-shine-img" />
+
+          <svg
+            width="222"
+            height="126"
+            viewBox="0 0 222 126"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g filter="url(#filter0_d_234_10)">
+              <mask
+                id="mask0_234_10"
+                style="mask-type: alpha"
+                maskUnits="userSpaceOnUse"
+                x="6"
+                y="5"
+                width="210"
+                height="110"
+              >
+                <path
+                  d="M108.011 7.26794C109.478 4.29496 113.718 4.29496 115.185 7.26794L129.114 35.4914C129.697 36.672 130.823 37.4903 132.126 37.6796L163.272 42.2055C166.553 42.6822 167.863 46.7141 165.489 49.0282L142.951 70.9972C142.009 71.9161 141.578 73.2401 141.801 74.5377L147.121 105.558C147.682 108.826 144.252 111.318 141.318 109.775L113.459 95.1291C112.294 94.5165 110.902 94.5164 109.737 95.1291L81.8784 109.775C78.9439 111.318 75.5142 108.826 76.0746 105.558L81.3951 74.5377C81.6176 73.2401 81.1874 71.9161 80.2447 70.9972L57.7069 49.0282C55.3328 46.7141 56.6429 42.6822 59.9237 42.2055L91.0702 37.6796C92.3731 37.4903 93.4993 36.672 94.082 35.4914L108.011 7.26794Z"
+                  fill="white"
+                />
+                <path
+                  d="M37.2458 51.1722C38.7131 48.1993 42.9525 48.1993 44.4197 51.1722L51.9025 66.3341C52.4852 67.5147 53.6115 68.333 54.9143 68.5223L71.6464 70.9536C74.9273 71.4303 76.2373 75.4622 73.8633 77.7764L61.7558 89.5782C60.813 90.4972 60.3829 91.8212 60.6054 93.1187L63.4636 109.783C64.024 113.051 60.5943 115.543 57.6598 114L42.6941 106.132C41.5288 105.519 40.1367 105.519 38.9714 106.132L24.0058 114C21.0712 115.543 17.6415 113.051 18.202 109.783L21.0601 93.1187C21.2827 91.8212 20.8525 90.4972 19.9098 89.5782L7.80229 77.7764C5.42822 75.4622 6.73827 71.4303 10.0191 70.9536L26.7513 68.5223C28.0541 68.333 29.1804 67.5147 29.763 66.3341L37.2458 51.1722Z"
+                  fill="white"
+                />
+                <path
+                  d="M177.251 51.1722C178.718 48.1993 182.958 48.1993 184.425 51.1722L191.908 66.3341C192.491 67.5147 193.617 68.333 194.92 68.5223L211.652 70.9536C214.933 71.4303 216.243 75.4622 213.869 77.7764L201.761 89.5782C200.818 90.4972 200.388 91.8212 200.611 93.1187L203.469 109.783C204.029 113.051 200.6 115.543 197.665 114L182.7 106.132C181.534 105.519 180.142 105.519 178.977 106.132L164.011 114C161.077 115.543 157.647 113.051 158.207 109.783L161.066 93.1187C161.288 91.8212 160.858 90.4972 159.915 89.5782L147.808 77.7764C145.434 75.4622 146.744 71.4303 150.025 70.9536L166.757 68.5223C168.059 68.333 169.186 67.5147 169.768 66.3341L177.251 51.1722Z"
+                  fill="white"
+                />
+              </mask>
+              <g mask="url(#mask0_234_10)">
+                <rect x="-1" width="223" height="126" fill="#7A54FD" />
+                <rect
+                  x="-1"
+                  width="223"
+                  height="126"
+                  scaleX="0"
+                  fill="#FFD217"
+                  class="starFill"
+                />
+              </g>
+              <path
+                d="M112.943 8.37436L126.872 36.5979C127.819 38.5163 129.649 39.846 131.766 40.1536L162.913 44.6795C164.143 44.8583 164.634 46.3702 163.744 47.238L141.206 69.207C139.674 70.7002 138.975 72.8517 139.337 74.9603L144.657 105.981C144.868 107.206 143.581 108.141 142.481 107.562L114.623 92.9163C112.729 91.9207 110.467 91.9207 108.573 92.9163L80.7151 107.562C79.6146 108.141 78.3285 107.206 78.5387 105.981L83.8591 74.9603C84.2207 72.8517 83.5217 70.7002 81.9897 69.207L59.4519 47.238C58.5616 46.3702 59.0529 44.8583 60.2832 44.6795L91.4297 40.1536C93.5468 39.846 95.377 38.5163 96.3238 36.5979L110.253 8.37436C110.803 7.25949 112.393 7.25949 112.943 8.37436Z"
+                stroke="white"
+                stroke-width="5"
+              />
+              <path
+                d="M42.1779 52.2787L49.6607 67.4405C50.6075 69.3589 52.4377 70.6886 54.5548 70.9963L71.2869 73.4276C72.5172 73.6064 73.0085 75.1183 72.1182 75.9861L60.0108 87.788C58.4788 89.2813 57.7797 91.4328 58.1414 93.5414L60.9996 110.206C61.2097 111.431 59.9236 112.366 58.8231 111.787L43.8575 103.919C41.9639 102.924 39.7017 102.924 37.8081 103.919L22.8424 111.787C21.742 112.366 20.4558 111.431 20.666 110.206L23.5242 93.5414C23.8858 91.4328 23.1867 89.2813 21.6548 87.788L9.54732 75.9861C8.65705 75.1183 9.14831 73.6064 10.3786 73.4276L27.1108 70.9963C29.2279 70.6886 31.058 69.3589 32.0048 67.4405L39.4877 52.2787C40.0379 51.1638 41.6277 51.1638 42.1779 52.2787Z"
+                stroke="white"
+                stroke-width="5"
+              />
+              <path
+                d="M182.183 52.2787L189.666 67.4405C190.613 69.3589 192.443 70.6886 194.56 70.9963L211.292 73.4276C212.523 73.6064 213.014 75.1183 212.124 75.9861L200.016 87.788C198.484 89.2813 197.785 91.4328 198.147 93.5414L201.005 110.206C201.215 111.431 199.929 112.366 198.829 111.787L183.863 103.919C181.969 102.924 179.707 102.924 177.813 103.919L162.848 111.787C161.747 112.366 160.461 111.431 160.671 110.206L163.53 93.5414C163.891 91.4328 163.192 89.2813 161.66 87.788L149.553 75.9861C148.662 75.1183 149.154 73.6064 150.384 73.4276L167.116 70.9963C169.233 70.6886 171.063 69.3589 172.01 67.4405L179.493 52.2787C180.043 51.1638 181.633 51.1638 182.183 52.2787Z"
+                stroke="white"
+                stroke-width="5"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_d_234_10"
+                x="2.58984"
+                y="5.03809"
+                width="216.491"
+                height="117.43"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feOffset dy="4" />
+                <feGaussianBlur stdDeviation="2" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_234_10"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_234_10"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+
+          <h1>
+            <div></div>
+          </h1>
+          <!-- piggy status  -->
+          <div id="status">
+            <img src="img/pinkSpin.png" alt="pink spin" class="pink-spin" />
+            <img
+              src="img/piggyFull.png"
+              alt="piggy status"
+              class="piggy-status"
+            />
+          </div>
+
+          <div id="btnContainer" class="replayBtnPosition boxShadow">
+            <button
+              id="replay-btn"
+              onClick="window.location.reload();"
+              class="btn"
+            >
+              Replay
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- piggy's size bar -->
+      <div class="sizeBarContainer boxShadow">
+        <img src="img/piggy2.png" alt="piggy's image" />
+        <div class="sizeBar">
+          <div id="size-bar"></div>
+        </div>
+        <span class="lable"></span>
+      </div>
+
+      <!-- timer  -->
+      <div id="timer" class="boxShadow">1:00</div>
+
+      <!-- right side menu  -->
+      <div class="menuContainer">
+        <button id="sound-btn" onclick="controlSound()">
+          <img src="img/sound-icon.png" alt="sound icon" />
+        </button>
+        <button id="music-btn" onclick="controlMusic()">
+          <img src="img/music-icon.png" alt="music icon" />
+        </button>
+        <button id="tutorial-btn" onclick="openModal()">
+          <img src="img/tutorial-icon.png" alt="tutorial icon" />
+        </button>
+      </div>
+    </div>
+
+    <!-- game  -->
+    <canvas id="canvas"></canvas>
+
+    <!-- Gsap & imagesloaded scripts -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"
+      integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"
+      integrity="sha512-kfs3Dt9u9YcOiIt4rNcPUzdyNNO9sVGQPiZsub7ywg6lRW5KuK1m145ImrFHe3LMWXHndoKo2YRXWy8rnOcSKg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- scripts -->
+    <script src="src/setup.js"></script>
+    <script src="src/index.js"></script>
+    <script src="src/utilities.js"></script>
+    <script src="src/sprites.js"></script>
+    <script src="src/targets.js"></script>
+    <script src="src/particles.js"></script>
+  </body>
+</html>
