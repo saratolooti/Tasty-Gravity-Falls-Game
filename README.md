@@ -8,7 +8,7 @@ built with:
 
 - Html Canvas
 - Vanilla javascript
-- CSS
+- Gsap
 - OOP
 
 ✨ I'll hope you enjoy it ✨
